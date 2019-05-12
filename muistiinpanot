@@ -1,0 +1,642 @@
+OSA 1
+Johdanto
+Ohjelmoinnin merkitys globaalisti
+ihminen on riippuvainen (matkustaminen, pankkipalvelut, terveydenhuoltopalvelut)
+digitalisaatio= digitaalisen tietotekniikan yleistyminen arkielämässä — sähköiset palvelut edullisempia ja nopiampia, luo työpaikkoja — työpaikkoja myös katoaa, monimutkaisuus ei näy päälle päin, kaikkia haittoja ei tiedetä
+ammattilaisten varmistettava että järjestelmät toimivat, ja että erilaiset yleisöt oppivat käyttämään niitä, 
+Margaret Hamilton kirjoitti ihmisen kuuhun vieneen Apollo flight software-ohjelman Apollo Space Programille NASA:lle
+Ohjelmoinnin ja järjestelmien ymmärrystä tarvitaan koko ajan lisää — opetetaan jo peruskoulussa — vaikea keksiä aloja joihin ohjelmistot ja digitalisaatio ei vaikuta  (meteorologit, fyysikot ja kemistit ohjelmoivat jo työssään)
+KURSSIN JÄLKEEN TULET PYSTYMÄÄN esittämään ohjelmissa esiintyviä käsitteitä yhteistoiminnassa toimivina palasina. Käsitteet kuten muuttuja, ehtolause, toistolause, luokka ja olio ovat kurssin lopuksi hyvin tuttuja, ja tiedät myös hieman algoritmiikasta sekä ohjelmistojen testaamisesta. Kurssin jälkeen saatat myös ajatella yhteiskunnan palveluita ohjelmoijan näkökulmasta ja pohdit niiden toimintaa (tai toimimattomuutta) ohjelmistojen tarjoamien mahdollisuuksien ja rajoitteiden näkökulmasta.
+ohjelmointikieliä joita tunnen: Javascript, Java, Ruby, Python, C, C++, HTML
+Java: yksinkertainen, yhtäaikaiseti toimiva, objekti-orientoitunut, "write once, run anywhere" (WORA)
+Suomalaisia ohjelmointiyrityksiä: Futurice, Gofore, Vincit, Reaktor, SolitaKurssi (Java - Ohjelmoinnin peruskurssi)
+Ohjelmoija suunnittelee ja kirjoittaa ohjelmistoja
+Koodia kutsutaan lähdekoodiksi — koostuu lauseista ja lausekkeista (statements&expressions) — Komento System.out.println(“Hei maailma”);  tulostaa tekstin ‘Hei maailma’ — ln=line
+lähdekoodin kääntäminen konekielelle voi tapahtua usealla tavalla (vrt. C, Python, Java) — eri kielissä ongelmat ja virheet nousevat esiin eri aikaan, heti tai vasta suorittaessa
+Missä ohjelmia kirjoitetaan? mitä tahansa voi kirjoittaa tekstieditorissa, esim. Microsoft Notepad, mutta tyypillisesti koodataan ohjelmistoympäristössä jossa saa automaattisesti tiedon käännösvirheistä. Tässä kurssissa käytetään Netbeans IDE (integrated development environment)
+
+2. Tulostaminen ja lukeminen
+Tavoitteet: Osaat kirjoittaa ohjelman, joka tulostaa tekstiä. Tutustut pinnallisesti käsitteeseen muuttuja Osaat luoda merkkijonomuuttujan (String) ja käyttää merkkijonomuuttujaa osana tekstiä tulostavaa ohjelmaa. Osaat luoda uuden merkkijonomuuttujan useampia merkkijonoja yhdistelemällä. Osaat kirjoittaa ohjelman, joka pyytää käyttäjältä tekstimuotoista syötettä.
+Ohjelmarunko:
+public class Esimerkki {
+    public static void main(String[] args) {
+        // Tänne kirjoitetaan ohjelman käyttämät lauseet
+        System.out.println("Tulostettava teksti");
+    }
+}
+PARAMETRIT= sulkujen sisältö
+RIVINVAIHTO= break
+LOHKO=block
+KOMENTO=command
+
+KOMMENTTI= /*bla bla*/ tai //bla bla
+TYYLIVIRHEET= näppäinyhdistelmä alt + shift + f (macOS control + shift + f) auttaa useimpien tyylivirheiden korjaamiseen
+Ohjelmointikielen kyseinen(PARAMETRI) hipsuissa oleva merkkijono on ns. merkkijonoliteraali, eli määrätyn muotoinen merkkijonomuotoinen arvo.
+MUUTTUJA=variable
+
+3. Muuttujat ja ohjelmien kielellistäminen
+Tunnet käsitteen muuttuja. Tiedät mitä ovat muuttujan tyyppi, muuttujan nimi, ja muuttujan arvo.
+Osaat luoda ja käsitellä merkkijono-, kokonaisluku-, liukuluku-, ja totuusarvomuuttujia.
+
+merkkijono (String)
+kokonaisluku (int) eli integer eli kokonaisluku
+liukuluku (double) eli desimaaliluku
+totuusarvo (boolean)
+
+- double liukuluku = 0.42; liukuluku = 1; // Onnistuu
+int luku = 10; liukuluku = luku; // Onnistuu myös
+- double pii = 3.14; double sade = 22.0; double pintaAla = pii * sade * sade;
+System.out.println(pintaAla);
+-String lukuMerkkijonona = "42"; int luku = Integer.valueOf(lukuMerkkijonona);
+System.out.println(luku);
+
+HOKSAA: int, double ja boolean pienellä MUTTA String isolla 	TOISINKO käytettäessä .valueOf() metodia eli: 	Integer.valueOf(); 	Double.valueOf(); 	Boolean.valueOf();
+
+4. Laskentaa luvuilla
+Osaat tehdä laskutoimintoja muuttujien avulla.
+Osaat muodostaa tulostuslauseita, jossa on mukana sekä laskuoperaatioita (lausekkeita) että merkkijonoja.
+
+käytössä + - * ja /
+laskutoimitus: sout (“syötä eka luku”); int eka = Integer.valueOf(lukija.nextLine()); sout (“syötä toka luku”); int toka = sama homma ko äsken int lasku = eka + toka; sout (“eka + “ + “ + toka + “ = “ + lasku);
+
+Jakolaskuissa hankalampi, kokonaisluvut kokonaislukuina mutta liukuluvuille DOUBLE int eka = 3; int toka = 2;  double tulos1 = (double) eka / toka; System.out.println(tulos1); // tulostaa 1.5  double tulos2 = eka / (double) toka; System.out.println(tulos2); // tulostaa 1.5  double tulos3 = (double) (eka / toka); System.out.println(tulos3); // tulostaa 1.0
+
+5. Ehtolauseet ja vaihtoehtoinen toiminta
+Tunnet käsitteen ehtolause ja osaat luoda ohjelmaan vaihtoehtoista toimintaa ehtolauseen avulla.
+Tunnet yleisimmät vertailuoperaatiot (yhtäsuuruus ==, suurempi kuin >, suurempi tai yhtäsuuri kuin >=, pienempi kuin <, pienempi tai yhtäsuuri kuin <=) ja osaat käyttää niitä kokonaislukujen ja liukulukujen vertailuun osana ehtolausetta.
+Osaat käyttää totuusarvomuuttujia osana ehtolausetta.
+Osaat vertailla merkkijonoja merkkijonoihin liittyvän equals-komennon avulla.
+
+>suurempi kuin
+>=suurempi tai yhtä suuri kuin
+<pienempi kuin
+<= pienempi tai yhtä suuri kuin
+== yhtä suuri kuin
+!= erisuuri kuin
+
+if
+else if
+else if
+else
+
+BOOLEAN JA EHTOLAUSE int eka = 1; int toka = 3; boolean onkoPienempi = eka < toka;
+if (onkoPienempi) {     System.out.println("1 on pienempi kuin 3!"); }
+
+JAKOJÄÄNNÖS JA EHTOLAUSE int jakojaannos = 7 % 2; System.out.println(jakojaannos); // tulostaa 1
+
+ONKO LUKU JAETTAVISSA 400lla? int jakojaannos = luku % 400; if (jakojaannos == 0)
+JOS HALUAA VERTAILLA STRINGS NIIN TÄYTYY KÄYTTÄÄ: .equals() String luku = lukija.nextLine(); if (luku.equals(“mitä ikinä haluaa sen muistuttavan”)
+
+6. Toiminnallisuuden toistaminen
+Tunnet käsitteen toistolause ja osaat luoda ohjelman, joka sisältää toistolauseen.
+Osaat käyttää break-komentoa toistolauseen suorituksen lopettamiseen ja toistolausetta seuraavaan käskyyn siirtymiseen.
+Osaat käyttää continue-komentoa toistolauseen alkuun palaamiseen.
+Osaat luoda ohjelman, joka lukee käyttäjältä syötettä kunnes käyttäjä syöttää tietynlaisen syötteen — esim luku 0 tai merkkijono "loppu", jonka jälkeen ohjelma kertoo ennen lopettamista syötetyistä syötteistä (esim. syötteiden lukumäärä, lukujen tapauksessa summa ja keskiarvo).
+Toistolauseke = WHILE
+KIRJOITA MUUTTUJA AINA WHILE FUNKTION ULKOPUOLELLE JOS MUUTTUJA ON SISÄPUOLELLA NIIN OHJELMA EI LOPU KOSKAAAAAN
+näyttää tältä: int luku = 1;  while (true) { System.out.println(luku); if (luku >= 5) {   break; } luku = luku + 1; } System.out.println(“Valmista!");          —————> tulostaa:  1 2 3 4 5 Valmista!
+-Merkkijonojen vertailu (eka.equals(“jotain”)
+-kokonaislukujen vertailu (luku == 4)
+
+
+
+OSA 2
+Ongelman osia ja niiden ratkaisumalleja
+Huomaat, että ohjelmissa toistuu samankaltaiset osaongelmat kuten syötteen lukeminen tai laskun laskeminen. Tiedät valmiin ratkaisumallin muutamaan osaongelmaan. Harjoittelet osaongelmiin littyvien ratkaisumallien yhdistämistä laajempien ongelmien ratkaisemisessa.
+Scanner-apuväline luodaan pääohjelman alkuun (eli lauseen public static void main(String[] args) {) jälkeiselle riville. Scanner-apuvälineen käyttö vaatii, että ohjelman määrittelyä (public class) edeltävillä riveillä on lause import java.util.Scanner;, joka tuo Scanner-apuvälineen ohjelman tietoon.
+KESKIARVO: int lukuja = 42; int summa = 1;  double keskiarvo = 1.0 * summa / lukuja;
+
+2. Loogiset operaatiot
+Tunnet loogiset operaatiot ja, tai, sekä ei, ja osaat käyttää niitä osana ehtolauseen lauseketta.
+Tunnet ehtolauseen suoritusjärjestyksen ja tiedät, että ehtolauseiden läpikäynti lopetetaan ensimmäiseen ehtoon, jonka lauseke evaluoituu todeksi.
+Osaat käyttää toistolauseen ehtona totuusarvon palauttavaa lauseketta, jolla päätetään jatketaanko toistoa vaiko ei.
+
+ ja = &&     TOTTA JOS MOLEMMAT ON  tai = ||       TOTTA JOS TOINEN ON   ei = !         TOTTA JOS KUMPIKAAN EI OLE (hox: !(luku > 4) sulkuihin!!!)
+Tee ohjelma, joka lukee luvun käyttäjältä ja tulostaa sen.
+Jos luku on jaollinen kolmella, tulosta luvun sijaan merkkijono "Fizz".
+Jos luku on jaollinen viidellä, tulosta luvun sijaan merkkijono "Buzz".
+Jos luku on jaollinen kolmella ja viidellä, tulosta luvun sijan merkkijono “FizzBuzz".
+Scanner lukija = new Scanner(System.in);
+System.out.println("Syötä luvut:"); int summa = 0; int i = 0; int lukumaara = 0; double ka = 0; int parilliset = 0; int parittomat = 0;
+while (true) { 	int luku = Integer.valueOf(lukija.nextLine());
+	if (luku == -1) { 		break; 	} else if (luku % 2 == 0) { 		parilliset++; 	} else if (luku % 2 != 0) { 		parittomat ++; 	}
+	i++; 	summa = summa + luku; }
+lukumaara = lukumaara + i; ka = ka + (1.0 * summa / lukumaara);
+System.out.println("Kiitos ja näkemiin!"); System.out.println("Summa: " + summa); System.out.println("Lukuja: " + lukumaara); System.out.println("Keskiarvo: " + ka); System.out.println("Parillisia: " + parilliset); System.out.println(“Parittomia: " + parittomat);
+    }
+}
+
+3. Ohjelman pilkkominen osiin: metodit
+Tunnet käsitteet metodi, metodin parametri, metodin palautusarvo ja ohjelman kutsupino.
+Osaat luoda metodeja ja osaat kutsua metodeja sekä pääohjelmasta (main-metodi) että muiden metodien sisältä.
+Osaat luoda parametrillisia ja parametrittomia metodeja, ja osaat luoda metodeja, jotka palauttavat arvon.
+
+metodi= ohjelman pala, jonka voi kutsua muualta ohjelmakoodista
+metodin paluuarvo= tyhjät sulkeet
+metodin parametri= mitä sulkeiden sisällä on  esim. System.out.println("olen metodille annettava parametri!")
+ohjelmointikielen valmiit metodit ja omat metodit
+
+
+
+OSA 3
+
+Ohjelmien ymmärrettävyydestä
+kommentit // tai /* */ oikeasti muuttujien nimien pitäisi pystyä kuvaamaan muuttujan toiminnon selkeästi
+nimeä muuttujat ja metodit selkeästi
+tieteellinen ajattelu
+harva ohjelma ohjelmoidaan vaan kerran, muokataan ja uusitaan jatkuvasti
+Ohjelmistoja tehdessä on hyvä usein luoda ensin Proof of Concept-sovellus, jolla voidaan kokeilla idean toimivuutta. Jos idea on hyvä, sitä jatkokehitetään — samalla myös ohjelma kehittyy
+
+2. Listamuuttujan käyttö useamman arvon tallentamiseen
+ArrayList<String> lista = new ArrayList<>();
+tuo lista näin: import.java.util.ArrayList();
+alkeis- ja viittaustyyppiset muuttujat
+LISTAT:
+listan luominen: ArrayList<Integer> lista = new ArrayList<>(); 	      voi myös olla String/Double
+listalle lisääminen: lista.add(“hei maailma!”);
+hae listalla oleva arvo: lista.get(0)
+muista että indeksi alkaa nollasta!! 1 2 3 4 5                                                        [0 1 2 ……]
+listalta poistaminen: lista.remove(“hei maailma!”);                             tai lista.remove(3);
+tarkasta arvon olemassaolo: lista.contains(“hei maailma!”); if (lista.contains(“hei maailma!”)) {      System.out.println(“Hei maailma! löyty yhä”); }
+
+3. Taulukot ja niissä olevan tiedon käsittely
+-taulukon alkio vastaa listan arvoa
+-taulukko sisältää rajatun määrän paikkoja toisin kuin lista
+-voi luoda kahdella tavalla:   -taulukon koko määritellään exclusively taulukkoa luodessa   -taulukon koko voidaan määritellä myöhemminkin?!??!! LISÄÄ TÄHÄN
+taulukon luominen: alkioiden tyyppi, hakasulut, nimi ja alkioiden määrä —> String [] merkkijonot = new String[5];        int [] luvut = new int[3];
+taulukon alkioon viittaus ja arvon asetus: -alkioihin viitataan indeksin avulla -arvo lisätään taulukkoon kertomalla mihin indeksiin se asetetaan luvut[0] = 42;
+taulukon koko = taulukko.length ILMAN SULKUJA koska ei ole metodikutsu hox: lista.size()
+läpikäynti käyttämällä while-toistolausetta
+tietokoneen muisti on rajattu, ei voi hakea arvoa joka on pienempi tai isompi kuin taulukko itse
+4. Merkkijonojen käsittely
+String sana = “aurinko”;
+String merkkijono = lukija.nextLine(); HOX: int kokonaisluku = Integer.valueOf(lukija.nextLine());
+String teksti = “kurssi”; if (teksti.equals(“marsipaani”)); HOX: int numero = 0;       if (numero == 0);
+merkkijonon osa on substring (eli kirjain)
+yksiparametrisenä palauttaa merkkijonon loppuosa  tai kaksiparametrisena palauttaa parametrien määrittelemä osa String kirja = “Kalavale”; sout(“kirja.substring(4)); —> nelosesta eteenpäin —> tulostaa: vale sout(“kirja.substring(2, 6)); —> tekstin 2-6 väliltä —> tulostaa: lava
+Määrämuotoisella tiedolla tarkoitetaan tietoa, joka noudattaa jotain tiettyä säännönmukaista muotoa/formaattia. esim: —tab separated format (tsv) missä arvot ovat eritelty toisistaan sarkainmerkeillä —comma separated format (csv) missä arvot on eritelty toisistaan pilkuilla ESIMERKKI CSV MUODOSTA etunimi,ika anton,2 leevi,2 lilja,1
+merkkijonojen pilkkominen eli split = muuttuja.split(”millä halutaan pilkkoa”)
+
+
+
+
+OSA 5
+2. Alkeis - ja viittausmuuttujat
+Javassa on kahdeksan alkeistyyppistä muuttujaa. Nämä ovat: -boolean (totuusarvo, joko true tai false) -byte (8 bittiä sisältävä tavu, välillä -128 ja 127) -char (yhtä kirjainmerkkiä kuvaava 16-bittiä sisältävä kirjainarvo) -short (pientä kokonaislukua kuvaava 16 bittiä sisältävä arvo, välillä -32768 ja 32767) -int (keskikokoista kokonaislukua kuvaava 32 bittiä sisältävä arvo, välillä -231 ja 231-1) -long (isohkoa kokonaislukua kuvaava 64 bittiä sisältävä arvo, välillä -263 ja 263-1) -float (32-bittiä käyttävä liukuluku) ja double (64-bittiä käyttävä liukuluku).
+Olemme käyttäneet näistä ensisijaisesti totuusarvomuuttujia (boolean), kokonaislukumuuttujia (int), ja liukulukumuuttujia (double).
+
+- Luokkametodia kutsua muodossa LuokanNimi.staattisenMetodinNimi().
+Neuvoja ohjelmointiin:
+1. Etene pieni askel kerrallaan
+Yritä pilkkoa ongelma osaongelmiin ja ratkaise vain yksi osaongelma kerrallaan
+Testaa aina että ohjelma on etenemässä oikeaan suuntaan eli että osaongelman ratkaisu meni oikein
+Tunnista ehdot, minkä tapauksessa ohjelman tulee toimia eri tavalla. Esimerkiksi yllä tarkistus, jolla katsotaan onko sana jo syötetty, johtaa erilaiseen toiminnallisuuden.
+2. Kirjoita mahdollisimman "siistiä" koodia
+sisennä koodi
+käytä kuvaavia muuttujien ja metodien nimiä
+älä tee liian pitkiä metodeja, edes mainia
+tee yhdessä metodissa vaan yksi asia
+poista koodistasi kaikki copy-paste
+korvaa koodisi "huonot" ja epäsiistit osat siistillä koodilla
+3. Astu tarvittaessa askel taaksepäin ja mieti kokonaisuutta. Jos ohjelma ei toimi, voi olla hyvä idea palata aiemmin toimineeseen tilaan. Käänteisesti voidaan sanoa, että rikkinäinen ohjelma korjaantuu harvemmin lisäämällä siihen lisää koodia.
+Ohjelmoijat noudattavat näitä käytänteitä sen takia että ohjelmointi olisi helpompaa. Käytänteiden noudattaminen tekee myös ohjelmien lukemisesta, ylläpitämisestä ja muokkaamisesta helpompaa muille.
+
+
+
+OSA 7
+Algortimiikkaa
+Algoritmi = Tiedon järjestämistä. Termi algoritmi on hatunnosto sekä matemaatikko Muhammad ibn Musa al-Khwarizmille että hänen syntyperälleen
+Peräkkäishaku = hakualgoritmi, joka etsii tietoa taulukosta käymällä taulukkoa läpi alkio alkiolta. Heti kun haettu alkio löytyy, sen indeksi palautetaan. Jos ei löydy, palautetaan -1
+Binäärihakualgoritmi eli puolitushaku= algoritmi joka aloittaa tiedon etsiminen taulukon (tai listan) keskimmäisestä indeksistä, verrata indeksissä olevaa arvoa haettuun arvoon, ja rajata tarvittaessa (eli mikäli haettavaa arvoa ei ole indeksissä) puolet tarkasteltavasta alueesta pois. Taulukon/listan on oltava järjestyksessä!!
+Binäärihaun tehokkuutta voidaan tarkastella kaksikantaisen logaritmin avulla (log2), joka kertoo annetusta luvusta, kuinka monta kertaa luku voidaan puolittaa. 
+Opiskele: -ohjelmistovirheistä johtuvia ongelmia -stack trace, askeleet virheiden selvittämiseen, tekstisyötteen antaminen Scannerille -yksikkötestaus -testivetoinen ohjelmistokehitysmenetelmä (luodaan ohjelma pienissä osissa, jotta pieniä osia voi testata ja korjata suoraviivaisemmin pienissä osissa. Ohjelmoidaan useita testiversioita jotta huomataan virheet ja korjaukset reaaliajassa)
+Stack Trace = niiden metodikutsujen lista, joiden seurauksena virhetilanne syntyi.  muistilista koodaajalle: - Sisennä koodi ja tarkista sulut - Tarkista muuttujien nimet - Testaa ohjelmaa erilaisilla syötteellä ja millä syötteellä ei toimi halutusti. - Lisää tulostuskomentoja eri vaiheisiin - Tarkista että kaikki muuttujat on alustettu (muuten NullPointerException) - Kiinnitä huomiota stack trace -listaan - Opettele käyttämään debuggeria (upotetut videot)
+Automaattinen testaus = syötteen eli luettavan merkkijonon antaminen Scanner-oliolle.
+Yksikkötestaus = ohjelman pieniä osia, kuten luokkia ja metodeja, testataan erikseen. Siinä hyödynnetään tyypillisesti valmiita yksikkötestauskirjastoja, jotka tarjoavat metodeja ja apuluokkia testien kirjoittamiseen. Javassa JUnit.
+MIKSI KÄYTTÄÄ USEITA METODEJA: Mitä useampi vastuu metodilla on, sitä monimutkaisempi testi ja testaaminen on.
+Testaus: 1. Testataan luokkaa “Laskin”, luodaan testiluokka “LaskinTest”.  (Huom! Testit luodaan NetBeansissa Test Packages -kansion alle.) 2. Luodaan testimetodi ja annetaan sille annotaatio: “@Test” esimerkiksi testataan arvon tarkistaminen JUnit, Assert ja assertEquals -komentojen avulla. 3. Ohjelma testataan valitsemalla projekti oikealla hiirennapilla ja klikkaamalla “Test”. 4. Output-välilehdelle tuloste testiluokkakohtaisista tilastoista; montako testiä, montako epäonnistunutta, montako skipattua, kauanko aikaa meni, rivi jolla virhe tapahtui, odotettu ja saatu arvo.
+Testivetoinen ohjelmointi = Ohjelman rakentaminen pienissä osissa toistuvasti testaillen. Testivetoinen ohjelmistokehitys koostuu viidestä askeleesta, joita toistetaan kunnes ohjelman toiminnallisuus on valmis: 1. Kirjoita testi, joka testaa ohjelmalle myöhemmin lisättävää toiminnallisuutta. 2. Suorita testi. Testin ei tule mennä läpi.  — Mikäli testi menee läpi, siirry kohtaan 1. 3. Kirjoita ohjelmaan testin läpäisemiseen tarvittava toiminnallisuus. 4. Suorita testit. — Mikäli testit eivät mene läpi, siirry kohtaan 3 ja täydennä toiminnallisuutta. 5. Refaktoroi (= korjaa) — Mikäli ohjelma on valmis, lopeta. — Muuten, siirry kohtaan 1.
+
+Seitsemännessa osassa tutustuttiin käsitteeseen ohjelmointiparadigma ja vertailtiin proseduraalista ohjelmointia ja olio-ohjelmointia. Tutustuimme tiedon järjestämiseen sekä tiedon hakemiseen liittyviin algoritmeihin (valintajärjestäminen, binäärihaku) sekä harjoittelimme ohjelmien automaattista testaamista.
+
+
+
+
+OSA 8
+Tässä osassa tutustut olio-ohjelmoinnin kahteen keskeiseen käsitteeseen eli perintään ja rajapintoihin. Opit luomaan luokkia, jotka periytyvät toisesta luokasta ja opit luomaan luokkia, jotka toteuttavat yhden tai useamman rajapinnan. Tulet myös huomaamaan, että olio voidaan esittää kaikkien sen todellisten tyyppien avulla.
+
+Tiedät että Java-ohjelmointikielessä jokainen luokka perii luokan Object.
+Tiedät miksi jokaisella oliolla on metodit toString, equals ja hashCode.
+Tiedät mihin metodeja toString, equals ja hashCode käytetään ja miten (ja milloin) ne määritellään.
+
+Perintä tarkoittaa että perivä luokka saa käyttöönsä perittävän luokan määrittelemiä toiminnallisuuksia ja ominaisuuksia. Perivää luokkaa kutsutaan aliluokaksi ja perittävää luokkaa yliluokaksi — Kirja on luokan Object aliluokka, ja Object on luokan Kirja yliluokka. Luokka Object sisältää muun muassa metodin toString, joka periytyy luokkiimme. 
+
+Object-luokassa määritelty toString-metodi ei yleensä tarjoa toivomaamme toiminnallisuutta. Se voidaan korvata omalla toteutuksella. Tämä tapahtuu luomalla omaan luokkaamme public String toString()-metodi, jossa on toivomamme toiminnallisuus.
+
+Annotaatio @Override kertoo lukijalle että annotaatiota seuraava metodi korvaa perityssä luokassa määritellyn metodin. Overriden kirjottamatta jättäminen ei kuitenkaan ole virhe.
+
+OMA EQUALS METODI jotta erottaa oliot toisistaan halutusti:
+
+1.  public boolean equals(Object olio) {
+    if (olio == null) {
+        return false;
+    }
+
+2. 
+public boolean equals(Object olio) {
+    if (olio == null) {
+        return false;
+    }
+
+3. 
+ Kirja verrattava = (Kirja) olio;
+
+
+
+
+4. 
+if (this.julkaisuvuosi != verrattava.getJulkaisuvuosi()) {
+        return false;
+    }
+
+5.
+if (this.nimi == null || !this.nimi.equals(verrattava.getNimi())) {
+        return false;
+    }
+
+
+
+6.
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. // mikäli parametrina saatu viite on null,
+    // eivät oliomme ole samat
+
+
+
+
+2. // mikäli parametrina saatu viite on null,
+    // eivät oliomme ole samat
+
+
+3. // koska parametrina saadun olion                                              tyyppi on sama kuin
+// tämän olion tyyppi, voimme olettaa että                  parametrina
+// saatu olio on kirja. Tehdään tyyppimuunnos.
+
+
+4. // mikäli julkaisuvuodet eivät ole samat                vvvvkirjat
+    // eivät ole samat
+
+
+5. // mikäli nimet eivät ole samat, kirjat 	eivät ole samat
+// tässä tehdään erikseen null-tarkistus -- 	mikäli
+// tämän kirjan nimeä ei olisi asetettu, kutsu nimi.equals
+// aiheuttaisi virheen NullPointerException
+
+
+
+6. // muulloin kirjat ovat samatHashCode = hajautusarvo - Hajautusarvoa käytetään suurpiirteiseen vertailuun -  Jos kahdella oliolla on sama hajautusarvo, ne saattavat olla samanarvoiset. Jos taas kahdella oliolla on eri hajautusarvot, ne ovat varmasti eriarvoiset. 
+ Jotta luokkaa voidaan käyttää HashMap:in avaimena, tulee sille määritellä: —metodi equals siten, että kaikki samansuuruisena (tai saman sisältöisinä) ajatellut oliot tuottavat vertailussa tuloksen true ja muut falsen —metodi hashCode siten, että mahdollisimman harvalla erisuuruisella oliolla on sama hajautusarvo
+
+Metodien equals ja hashCode automaattinen luominen
+Voit valita valikosta Source -> Insert Code, ja valita aukeavasta listasta equals() and hashCode(). Tämän jälkeen NetBeans kysyy oliomuuttujat joita metodeissa käytetään. Nämä NetBeansin generoimat metodit ovat tyypillisesti "tarpeeksi hyviä" omiin tarpeisiimme.
+
+
+Tunnet käsitteet perintä, yliluokka ja aliluokka.
+Osaat luoda luokkia, jotka perivät osan ominaisuuksistaan toisesta luokasta.
+Osaat kutsua yliluokassa määriteltyä konstruktoria ja metodia.
+Tiedät miten olion suoritettava metodi määräytyy ja tunnet käsitteen polymorfismi.
+Tiedät milloin perintää kannattaa käyttää ja osaat antaa esimerkin tilanteesta, mihin perintä ei sovi.
+
+Olio-ohjelmointi Olio-ohjelmoinnissa ratkaisut syntyvät luokista luotujen olioiden välisen interaktion avulla. Olio-ohjelmoinnissa olio on itsenäinen kokonaisuus, jolla on olion tarjoamien metodien avulla muutettava tila. Olioita käytetään yhteistyössä; jokaisella oliolla on oma vastuualue.
+
+API =  Application Programming Interface eli luokan/muun ohjelmointirajapinta
+
+Perintä=  luokka voi periä suoraan toisen luokan, ja välillisesti kaikki luokan metodit.
+	    Aliluokka= subclass, Yliluokka= superclass
+	   Luokan ominaisuudet peritään avainsanalla extends  
+ESIM: public class Mootttori extends Osa { }
+— luokka MOOTTORI perii luokan OSA
+
+super, jolla kutsutaan yliluokan konstruktoria.
+(this-kutsulla kutsutaan tämän luokan konstruktoria, super-kutsulla yliluokan konstruktoria)
+
+Metodien näkyvyysmääre: -private= ei näy muille, eikä aliluokille -public= näkyy kaikille
+-protected= ei näy muille, mutta näkyy aliluokille
+
+
+Perintähierarkia kannattaa pitää matalana, sillä hierarkian ylläpito ja jatkokehitys vaikeutuu perintöhierarkian kasvaessa. Yleisesti ottaen, jos perintähierarkian korkeus on yli 2 tai 3, ohjelman rakenteessa on todennäköisesti parannettavaa.
+
+Esimerkiksi luokan Auto periminen luokasta Osa (tai Moottori) olisi väärin. Auto sisältää moottorin ja osia, mutta auto ei ole moottori tai osa. Voimme yleisemmin ajatella että jos olio omistaa tai koostuu toisista olioista, ei perintää tule käyttää.
+
+Polymorfismi:
+Suoritettava metodi valitaan aina olion todellisen tyypin perusteella riippumatta käytetyn muuttujan tyypistä. Oliot ovat monimuotoisia, eli olioita voi käyttää usean eri muuttujatyypin kautta. Suoritettava metodi liittyy aina olion todelliseen tyyppiin. Tätä monimuotoisuutta kutsutaan polymorfismiksi. — korvaavan metodin valinta liittyy olion tyyppiin, ei muuttujan tyyppiin! Tätä kutsutaan polymorfismiksi eli monimuotoisuudeksi.
+
+KAPSELOIMINEN?????????  (“aloitetaan kapseloimalla ArrayList -olio”)
+
+Abstrakti luokka
+Sekä abstraktin luokan että abstraktien metodien määrittelyssä käytetään avainsanaa abstract. Abstrakti luokka määritellään lauseella public abstract class *LuokanNimi*, abstrakti metodi taas lauseella public abstract palautustyyppi metodinNimi. 
+Rajapintojen ja abstraktien luokkien suurin ero on siinä, että abstrakteissa luokissa voidaan määritellä metodien lisäksi myös oliomuuttujia sekä konstruktoreja.
+
+METODIEN EQUALS JA HASHCODE AUTOMAATTINEN LUOMINEN:
+NetBeans tarjoaa tuen metodien equals ja hashCode lähes automaattiseen luomiseen. Voit valita valikosta Source -> Insert Code, ja valita aukeavasta listasta equals() and hashCode(). Tämän jälkeen NetBeans kysyy oliomuuttujat joita metodeissa käytetään. Nämä NetBeansin generoimat metodit ovat tyypillisesti "tarpeeksi hyviä" omiin tarpeisiimme.
+
+Rajapinta eli Interface (API) Tunnet käsitteen rajapinta, osaat määritellä omia rajapintoja, ja osaat toteuttaa rajapinnan luokassa.
+Osaat käyttää rajapintoja muuttujan tyyppinä, metodin parametrina sekä metodin paluuarvona.
+Osaat käyttää rajapintoja muuttujan tyyppinä, metodin parametrina sekä metodin paluuarvona.
+Tunnet joitakin Javan valmiita rajapintoja.
+
+public interface Luettava {
+    String lue();
+}
+
+Valmiit rajapinnat: Javan API tarjoaa useita valmiita rajapintoja, joista yleisimpiä ovat: List, Map, Set ja Collection.
+—List:
+   ArrayList (helppo käydä läpi, hitaampi lisätä) ja LinkedList ( helppo lisätä, hidas käydä läpi)
+   HOX! KÄYTÄ ARRAYLISTIÄ TÄLLÄ KURSSILLA, MUTTA KÄYTÄ RAJAPINTOJA
+
+—Map: 
+   HashMap eli hajautustaulu
+
+—Set:
+   HashSet eli joukko (javassa joukot sisältävät aina joko 0 tai 1 kappaletta tiettyä oliota) 			(ei ota kantaa joukon alkioiden järjestykseen, tarvii equals ja hashcoden)
+
+—Collection:
+    Kokoelmat, mm. listat ja joukot. (metodit contains(), size(), for-each)Perintähierarkia listaa luokat, jotka luokka on perinyt. Perityt luokat listataan perimisjärjestyksessä, tarkasteltava luokka aina alimpana.
+
+Object-luokassa määriteltyjä metodeja: toString, equals ja hashCode
+
+
+
+
+OSA 9
+Tässä osassa syvennytään tietokokoelmien käsittelyyn virtojen avulla. Opit luomaan virran tietokokoelmasta, rajaamaan virran arvoja, muuntamaan virran arvoja muodosta toiseen, ja keräämään virran arvoja toiseen tietokokoelmaan. Tutustut käsitteeseen lambdalauseke ja opit käyttämään sitä ohjemissasi. Opit järjestämään olioita Javan valmista Comparable-rajapintaa hyödyntäen ja tutustut muutamaan muuhunkin yleishyödylliseen työvälineeseen kuten säännöllinen lauseke, lueteltu tyyppi, ja iteraattori.
+
+- Osaat käsitellä tietokokoelmia virran avulla.
+- Tiedät mitä lambda-lauseke tarkoittaa.
+- Tunnet yleisimmät virran metodit ja osaat jaotella ne välioperaatioihin ja pääteoperaatioihin.
+
+virta = stream() long kolmellaJaollistenLukumaara = syotteet.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .filter(luku -> luku % 3 == 0)
+    .count();
+1. voidaan luoda mistä tahansa Collection APIn/rajapinnan toteuttavasta oliosta (ArrayList,HashMap,HashSet..)
+2. muutetaan merkkijonomuotoiset arvot metodilla mapToInt(arvo -> muunnos)     —> tässä muunnos toteutetaan Integer-luokan tarjoamalla valueOf-metodilla
+3. rajataan metodilla filter(arvo -> rajausehto)
+4. kutsutaan virran metodia count(), joka laskee virran alkioiden lukumäärän ja palauttaa long-tyyppisenä muuttujana
+
+Virtaan liittyviä metodeja: 
+- stream() — virran luominen — Kutsutaan Collectionin omaavalle kokoelmalle. luotavalle virralle tehdään jotain.  - mapToInt(arvo -> toinenArvo) — virran muuntaminen kokonaislukuvirraksi — Muunnetaan merkkijonoja sisältävästä kokonaislukuja sisältäväksi valueOf-metodilla.
+ - filter(arvo -> hyvaksymisehto) — arvojen rajaaminen — Rajataan virrasta pois ne arvot jotka eivät täytä ehtoa. Nuolen oikea puoli palauttaa totuusarvon. Jos ‘true’, hyväksytään arvo virtaan. Jos ‘false’ ei arvoa hyväksytä virtaan.  - average() — keskiarvon laskeminen — Palauttaa OptionalDouble-tyyppisen olion, jolla on ‘double’ tyyppisen arvon palauttava metodi ‘getAsDouble’. Metodin voi kutsua kokonaislukuja sisältävälle virralle.  - count() —virrassa olevien alkioiden määrä. long -tyyppisenä arvona.
+Lambda-lauseke = Javan tarjoama lyhenne ns. anonyymeille metodeille, joilla ei ole "omistajaa" eli ne eivät ole osa luokkaa tai rajapintaa.  —esim. (luku -> luku < 0)
+—HOX: sama asia:  public static boolean vitostaSuurempi(int luku) {
+        return luku > 5;
+    } 
+
+VIRRAN METODIT VOIDAAN JAKAA KAHTEEN RYHMÄÄN:
+ 1. välioperaatiot: käsittelevät arvoja (esim. filter ja mapToInt)
+ 2. pääteoperaatiot: lopettavat käsittelyn (average)
+
+Pääteoperaatiot:
+-count= lukumäärä
+-forEach= läpikäynti — esim. sout(luku)
+-collect= kerääminen toiseen kokoelmaan — esim. “Collectors.toCollection(ArrayList::new)”
+-reduce= yhdistetään toiseen muotoon — esim. reduce(*alkutila*, (*edellinen*, *olio*) -> *mitä oliolla tehdään*
+
+Välioperaatiot:
+-map= muuntaminen muodosta toiseen
+-mapToInt= muuntaminen kokonaislukuvirraksi
+-filter= arvojen rajaaminen
+-distinct= uniikkien arvojen tunnistaminen
+-sorted= arvojen järjestäminen (jos mahdollista)
+
+-tiedoston lukeminen/käsitteleminen:
+ 	try {
+		jotainnnnnnn
+	} catch (Exception e) {
+		sout(“Virhe: “ + e.getMessage());
+	}
+
+Tunnet Javan valmiin rajapinnan Comparable ja osaat toteuttaa sen omissa luokissasi.
+Osaat hyödyntää Javan valmiita välineitä sekä listojen järjestämiseen että virran alkioiden järjestämiseen.
+Osaat järjestää listan alkioita useampaa kriteeriä käyttäen (esim. osaat järjestää henkilöt nimen ja iän perusteella).
+
+Comparable-rajapinta määrittelee metodin compareTo 
+
+luonnollinen järjestys (natural ordering) = compareTo -metodi saa parametrinaan olion johon “this”-oliota verrataan.
+   jos “this”-olio on ennen parametriä — palautetaan negatiivinen luku    jos “this”-olio on parametrin jälkeen —  palautetaan positiivinen luku
+   muulloin palautetaan 0
+
+ public int compareTo(Kerholainen kerholainen) {
+        if (this.pituus == kerholainen.getPituus()) {
+            return 0;
+        } else if (this.pituus > kerholainen.getPituus()) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+tai
+
+public int compareTo(Kerholainen kerholainen) {
+    return this.pituus - kerholainen.getPituus();
+}
+
+KOKOELMAN JÄRJESTÄMINEN:
+1. Collections.sort(kerholaiset);
+    kerholaiset.stream().forEach(k -> System.out.println(k); 2. kerholaiset.stream().sorted().forEach(k -> System.out.println(k); 
+
+henkilot.stream().sorted((h1, h2) -> {
+    return h1.getSyntymavuosi() - h2.getSyntymavuosi();
+}).forEach(h -> System.out.println(h.getNimi())); 
+
+henkilot.stream().sorted((h1, h2) -> {
+    return h1.getNimi().compareTo(h2.getNimi());
+}).forEach(h -> System.out.println(h.getNimi())); 
+
+Luokka Comparator tarjoaa järjestämistä varten kaksi oleellista metodia: comparing ja thenComparing 
+
+Tunnet perinteisen for-toistolauseen.
+Tiedät merkkijonojen liittämiseen liittyviä ongelmia ja osaat välttää ne StringBuilder-luokan avulla.
+Tunnet säännölliset lausekkeet ja osaat kirjoittaa omia säännöllisiä lausekkeita.
+Tunnet luetellut tyypit (enum) ja tiedät milloin niitä kannattaa käyttää.
+Osaat käyttää iteraattoria tietokokoelmien läpikäyntiin.
+
+FOR-toistolause: for (int i = 1; i < 5; i++) {    Stringbuilderiä käyttäen: for (int i = 1; i < 5; i++) {
+			luvut = luvut + i;					luvut.append(i);
+		    }							   } sout(luvut.toString());
+StringBuilder
+— tarjoaa tavan merkkijonojen yhdistämiseen ilman turhaa merkkijonojen luomista.
+— uusi olio: StringBuilder luvut = new StringBuilder();
+— kutsutaan: luvut.append(i);
+— tulostetaan: System.out.println(luvut.toString());
+StringBuilderin käyttö vie vähemmän tilaa ja nopeuttaa suurten merkkijonojen luomista.
+esim. kutsu luvut += i; luo uuden merkkijonon. merkkijonojen luonti ei ole nopea operaatio ja se vie tilaa muistista.
+
+Säännöllinen lauseke — määrittelee joukon merkkijonoja tiiviissä muodossa
+— merkkijonojen oikeellisuus tarkistetaan luomalla säännöllinen lauseke, joka määrittelee merkkijonot, jotka ovat oikein.
+
+Vaihtoehtoisuus (pystyviiva)
+— esim. sana.matches(“00|111|0000”), metodi “matches” palauttaa ‘true’ jos merkkijono vastaa jotain vaihtoehdoista
+— merkkijonon tulee olla täsmälleen oikein (ei käy samannäköinen kuten “contains” metodissa
+
+Merkkijonon osaan rajattu vaikutus (sulut)
+— sana.matches("auto(|n|a|ssa|sta|on|lla|lta|lle|na|ksi|tta)")) 
+— sana.matches(0000(0|1))
+
+Toistomerkinnät — String merkkijono = “trolololololo”;
+- * tarkoittaa että toisto 0 kertaa —> merkkijono.matches(“trolo(lo)*”))
+- + tarkoittaa että toisto 1 kertaa —> merkkijono.matches(“tro(lo)+”)) 
+				     TAI merkkijono.matches(“(nä)+ Bätmään!”)) - ? tarkoittaa että toisto 0 tai 1 kertaa —> merkkijono.matches("You have to accidentally (delete )?the whole meme”) - {a} tarkoittaa että toisto a kertaa —> String teksti = “1010”; merkkijono.matches(“(10){2}”)) - {a,b} tarkoittaa että toisto a..b kertaa —> merkkijono.matches(“1{2,4}”)) - {a,} tarkoittaa että toisto a kertaa—> merkkijono.matches(“1{2,}”))
+— useita toistomerkintöjä voi käyttää yhdessä:  Esimerkiksi säännöllinen lauseke 5{3}(1|0)*5{3} määrittelee merkkijonot, jotka alkavat ja loppuvat kolmella vitosella. Välissä saa tulla rajaton määrä ykkösiä ja nollia.
+
+Merkkiryhmät (hakasulut)
+— määrittelee lyhyesti joukon merkkejä
+— merkit hakasulkujen sisään ja merkkiväli määritetään viivan avulla.
+— esim. merkintä [145] tarkoittaa samaa kuin (1|4|5)       ja merkintä [2-36-9] tarkoittaa samaa kuin (2|3|6|7|8|9)
+—merkintä [a-c]* vaatii että merkkijono sisältää vain merkkejä a, b ja c.
+
+Säännöllisistä lausekkeista lisää kurssilla Laskennan mallit (TKT-20005). Lisää aiheesta: regular expressions java.
+
+Enum eli lueteltu tyyppi
+— luokkatyyppi (kuten normaali luokka ja rajapinta)
+— luettelee määrittelemänsä vakioarvot pilkulla erotettuina, kirjoitetaan isoilla kirjaimilla
+— enum-luokalla PRIVATE konstruktori, ei saa olla public konstruktoria!!
+— vakioita verrataan yhtäsuuruusmerkillä, myös equals käy (saavat uniikin numerotunnuksen)
+     —> vakioiden numerotunnukset niiden järjestyksen mukaan (eka on 1, toka on 2)
+     —> numerotunnuksen saa selville metodilla ordinal()
+— Netbeansissa luodaan —> projects ja new/other/java/java enum
+—Oraclella on enum-tyyppiin liittyvä sivusto osoitteessa:     http://docs.oracle.com/javase/tutorial/java/javaOO/enum.html.
+
+Iteraattori
+— ArrayList ja muut Collection-rajapinnan toteuttavat "oliosäiliöt" toteuttavat rajapinnan Iterable 
+— iteraattori eli Iterator-olio (vähänniinkö sormi/osoittaja)
+public void poistaHuonoimmat(int arvo) {
+Iterator<Luokka> iteraattori = luokka.iterator();
+     while (iteraattori.hasNext()) {
+	if (iteraattori.next().getArvo() < arvo) {
+		iteraattori.remove();
+	}
+     } 
+} 
+
+
+
+
+
+OSA 10
+Tämän osan jälkeen osaat tulkita yksinkertaisia luokkakaavioita ja osaat rakentaa ohjelmia luokkaakavioiden perusteella. Tiedät mitä Javan pakkaukset ovat, tiedät mistä import-lauseen osat muodostuvat, ja osaat asettaa luokkasi pakkauksiin. Harjoittelet Javan poikkeusten käyttöä ja opit sekä niiden käsittelyn että niiden eteenpäin heittämisen. Opit kirjoittamaan tietoa tiedostoon ohjelmallisesti ja kertaat yksikkötestien kirjoittamista uutta ohjelmointitehtävää luodessasi.
+Tunnet luokkakaavioiden merkintätavan ja osaat merkitä luokkakaavioon luokat, attribuutit, konstruktorit, ja metodit. Tunnet luokkien väliset yhteydet ja osaat merkitä luokkakaavioon perinnän sekä rajapinnan toteutuksen. Osaat luoda luokkia luokkakaavioiden perusteella.
+Luokkakaavio  = kaavio jolla kuvataan luokkia ja niiden yhteyksiä.    kertoo rakenteesta muttei sisällöstä.  
+
+yhteydet: —merkitään viivoilla, joissa nuolet kuvaavat yhteyden suuntaa. —viivaan voi kirjoittaa tietoa yhteydestä — * kertoo että osoittavalla luokalla voi olla nollasta äärettömään nuolen osoittamaa asiaa (esim tässä: kirjalla useita kirjoittajia) —jos ei viivaa niin molemmat vastuussaperintä: —kolmion muotoinen nuoli, osoittaa luokkaa joka peritään 
+abstraktit luokat: —merkitään nimen yläpuolelle <<abstract>> —abstraktit metodit kuvattava kursiivilla
+rajapinnat: —merkitään nimen yläpuolelle <<interface>> —kolmiopäinen katkoviivanuoli osoittaa perittävää rajapintaa
+HOX! Luokkakaavioiden piirtämiseen ei kannata käyttää liian paljon aikaa vaan piirtää ne sopivalla abstraktiotasolla. Materiaalissa käytetyt luokkakaaviot on piirretty yUML:n, Createlyn, ja draw.io:n. Myös NetBeansiin löytyy välineitä luokkakaavioiden luomiseen — esimerkiksi easyUML mahdollistaa luokkakaavioiden luomisen suoraan projektin koodista. 
+
+Tiedät mitä pakkaukset ovat ja osaat asettaa luokkia pakkauksiin. Tiedät mistä Javassa käytetyn import-lauseen osat muodostuvat.
+Pakkaukset (=package) —hakemisto/kansio/directory johon lähdekooditiedostot organisoidaan     -lähdekoodipakkaus= Source Package     -oletuspakkaus= Default Package —luodaan NetBeansissa projektin pakkauksiin liittyvässä Source Packages -osiossa oikeaa hiirennappia painamalla ja valitsemalla New -> Java Package…. —pakkauksen sisälle luodaan luokkia —jokainen pakkaus voi sisältää useita pakkauksia      -esim. package kirjasto.domain, jossa pakkaus domain on pakkaus kirjaston sisällä —merkitään: package kirjasto 		import kirjasto.domain.Kirja 		public class Sovellus {…….
+pakkausnäkyvyys: —jos näkyvyysmäärettä ei määritellä, metodit ja muuttujat ovat näkyvillä saman pakkauksen sisällä —eli saman pakkauksen sisällä olevat luokat voivat käyttää metodeja ja muttujia
+Poikkeukset ja resurssit  —try-catch  (try=lohko jossa mahollisesti tapahtuu poikkeus, catch=lohko jossa poikkeus käsitellään)
+Poikkeusten siirtäminen —On poikkeuksia jotka on pakko käsitellä, ja on poikkeuksia joita ei ole pakko käsitellä. —Poikkeukset käsitellään joko try-catch -lohkossa, tai heittämällä ne ulos metodista. — Voidaan myös jättää poikkeus käsittelemättä ja siirtää vastuu poikkeuksen käsittelystä metodin kutsujalle (throws *PoikkeusTyyppi* esim. throws Exception)    -vastuuta voidaan siirtää jopa mainiin asti, voi päätyä ohjelman suorittajalle eli javan     virtuaalikoneelle, joka keskeyttää ohjelman suorituksen Poikkeusten heittäminen  —throw-komennolla (esim. NumberFormatException poikkeuksen heittäminen:  throw new NumberFormatException() ) 
+
+
+
+
+OSA 11
+Tämän osan jälkeen tiedät mitä geneeriset tyyppiparametrit ovat ja mitä merkintä ArrayList<String> tarkoittaa. Osaat myös luoda luokkia, joissa käytetään geneerisiä tyyppiparametreja. Tutustut ArrayListin ja HashMapin sisäiseen toteutukseen ja luot niistä yksinkertaiset omat versiot. Opit luomaan satunnaislukuja ja harjoittelet Javan valmiiden välineiden käyttöä satunnaislukujen luomiseen. Tutustut moniulotteisen tiedon esittämiseen ja opit luomaan ja käsittelemään moniulotteisia taulukoita.
+
+Geneeriset tyyppiparametrit Tiedät mitä käsitteellä geneerinen tyyppiparametri tarkoitetaan. — merkkien < > sisään voidaan määrittää haluttu tyyppi, luokalle tai kokoelmalle Tunnet Javassa olevia geneerisiä tyyppiparametreja hyödyntäviä luokkia. — rajapinta Comparable ja tyyppi ArrayList Osaat luoda omia luokkia, joissa käytetään geneerisiä tyyppiparametreja. — geneerisiä tyyppiparametrejä voi olla yksi tai useampi
+taulukon luominen: int[] luvut = new int[3]; String[] merkkijonot = new String[5];
+geneerinen taulukko — taulukko, jonka alkioiden tyyppi määräytyy ajonaikaisesti tyyppiparametreista
+
+Satunnaisuus ohjelmissa Tiedät miten satunnaislukuja luodaan ja tiedät joitakin tilanteita missä satunnaislukuja tarvitaan. —arpoo luvun haluttujen lukujen väliltä.  Osaat käyttää Javan valmista Random-luokkaa satunnaislukujen luomiseen. — import java.util.Random; ja Random arpoja = new Random();   arpoja.nextInt(10); 
+Eksplisiittistä tyyppimuunnosta käytetään liukulukujen muuntamiseen kokonaisluvuiksi. — return (int) (4 * this.random.nextGaussian() - 3);
+Kaksiulotteinen taulukko: int rivit = 2; int sarakkeet = 3; int[][] kaksiulotteinenTaulukko = new int[rivit][sarakkeet];
+
+
+
+
+OSA 12
+Tämän osan jälkeen osaat luoda graafisia käyttöliittymiä, lisätä graafisiin käyttöliittymiin käyttöliittymäkomponentteja, sekä reagoida käyttöliittymissä tapahtuviin tapahtumiin. Osaat myös tehdä käyttöliittymiä, jotka sisältävät useamman näkymän.
+
+Tiedät mistä käyttöliittymät koostuvat ja osaat käynnistää graafisen käyttöliittymän.
+Tunnet muutamia käyttöliittymäkomponentteja ja osaat lisätä niitä käyttöliittymään.
+Tunnet menetelmiä käyttöliittymäkomponenttien asetteluun.
+Tunnet käsitteen tapahtumankäsittelijä ja osaat käsitellä käyttöliittymän tapahtumia.
+Osaat antaa parametreja graafiselle käyttöliittymälle.
+Harjoittelet useamman näkymän lisäämistä graafiseen käyttöliittymään.
+Tunnet näkymän vaihtamiseen käytettäviä menetelmiä.
+Tunnet menetelmiä sovelluslogiikan ja käyttöliittymälogiikan eriyttämiseen.
+
+
+—graafiseen käyttöliittymään tarvii applivation APIn ja stage työkalun
+käyttöliittymäkomponentteja:  Label, FlowPane, Scene, Button, TextField, BorderPane(reunoille), HBox(setSpacing, vierekkäin), VBox(allekkain), GridPane(ruudukko), TextArea(vapaata tekstiä), 
+
+tapahtumankäsittelijä:
+—liittyvät aina tiettyihin käyttöliittymäkomponentteihin
+-nappi.setOnAction(new EventHandler<ActionEvent>() {
+	@Override
+    	public void handle(ActionEvent event) {
+        		System.out.println("Painettu!");
+    	}
+   });
+ -nappi.setOnAction((event) -> {
+    System.out.println("Painettu!");
+});
+
+
+
+
+OSA 13
+Tämän osan jälkeen tunnet menetelmiä tiedon visualisointiin ja osaat käyttää Javan valmiiksi tarjoamia kaavioita (viivakaavio, pylväskaavio). Osaat luoda yksinkertaisia piirroksia Javan tarjoamilla välineillä ja osaat käsitellä kuvia. Opit soittamaan äänitiedostoja. Tässä osassa luot myös hieman suuremman ohjelman — Asteroids-pelin — esimerkkiä noudattaen.
+Tunnet menetelmiä tiedon visualisointiin.
+Osaat käyttää Javan valmiita tiedon visualisointiin tarkoitettuja käyttöliittymäkomponentteja.
+Tiedät tavan jatkuvasti muuttuvan tiedon visualisointiin
+
+Kaaviot  —aluekaavio eli AreaChart —pylväskaavio eli BarChart —viivakaavio eli LineChart: Ajan yli tapahtuvan muutoksen kuvaamiseen. x-koordinaatti kuvaa ajanhetkeä ja y-koordinaatti muuttujan arvoa. Voi sisältää useamman muuttujan. —piirakkakaavio eli PieChart
+Jatkuvasti muuttuvan tiedon visualisointi —esim. osakekurssit ja säätiedot —AnimationTimer hakee tai luo ajoittain uutta tietoa sovellukseen
+Suurten lukujen laki on todennäköisyyslaskentaan liittyvä ilmiö, joka kertoo, että satunnaismuuttujan keskiarvo lähestyy satunnaismuuttujan odotusarvoa kun toistojen määrä kasvaa. Käytännössä esimerkiksi kuusisivuisen nopan heittojen keskiarvo lähestyy heittojen lukumäärän kasvaessa lukua 3.5. Vastaavasti kolikkoa heitettäessä kruunien ja klaavojen suhde lähestyy "fifti-fifti"-jakoa kun kolikonheittojen määrä kasvaa.
+
+Tunnet menetelmiä multimedian käyttämiseen graafisissa käyttöliittymissä.
+Osaat piirtää graafiseen käyttöliittymään. —piirtäminen (Canvas, GraphicsContext, ColorPicker)
+Osaat näyttää kuvan graafisessa käyttöliittymässä. —kuvat (Image, ImageView, PixelReader, WritableImage)
+Osaat soittaa ääniä graafisessa käyttöliittymässä. —äänet (AudioClip, play(), )
+
+Tiedät tavan interaktiivisen pelin toteuttamiseen.
+Näet miten laajempi sovellus rakentuu askel askeleelta.
+Harjoittelet askeleittaisten ohjeiden seuraamista laajemman sovelluksen rakentamiseksi.
+
+
+
+
+
+OSA 14
+Tämän osan jälkeen tunnet menetelmiä simulaatioiden luomiseen ja olet kerrannut kaksiulotteisten taulukoiden käyttöä. Tiedät, että muiden kirjoittamia kirjastoja voi käyttää osana omia ohjemia, ja olet ottanut ensiaskeleet tietokannan käyttöön. Kertaat myös käsitettä yksikkötesti ja opit käsitteen testikattavuus.
+
+Tiedät mitä simulaatiot ovat.
+Kertaat kaksiulotteisten taulukoiden käyttöä.
+Harjoittelet piirtämistä Canvas-elementille.
+Osaat luoda kaksiulotteisiin taulukoihin perustuvia simulaatioita.
+Tunnet yleisiä sääntöjä simulaatioiden toteuttamiseen.
+
+Kaksiulotteiset taulukot esitellään muuttujatyypin sekä sitä seuraavan kahden hakasulun avulla (esim int[][]). Tätä seuraa muuttujan nimi sekä konkreettinen taulukko-olion luonti, esim int[][] taulukko = new int[rivit][sarakkeet], missä rivit ja sarakkeet ovat kokonaisluja.
